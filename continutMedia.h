@@ -11,8 +11,8 @@ protected:
 
 public:
     continutMedia(std::string t, std::string a, int d);
-    continutMedia(continutMedia& altul);
-    continutMedia& operator=(continutMedia& altul);
+    continutMedia(const continutMedia& altul);
+    continutMedia& operator=(const continutMedia& altul);
     ~continutMedia();
     virtual void afisare() = 0; //o sa pun pentru fiecare clasa copil functie personalzata de afisare 
 };
