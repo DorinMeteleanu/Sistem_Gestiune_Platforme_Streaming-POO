@@ -14,5 +14,5 @@ public:
     continutMedia(const continutMedia& altul);
     continutMedia& operator=(const continutMedia& altul);
     ~continutMedia();
-    virtual void afisare() = 0; //o sa pun pentru fiecare clasa copil functie personalzata de afisare 
+    virtual void afisare() const = 0; //o sa pun pentru fiecare clasa copil functie personalzata de afisare 
 };
