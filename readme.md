@@ -1,0 +1,1 @@
+##Aplicatie de gestiune pentru o platformă de Streaming media (fișiere audio, video, podcast-uri, etc)
