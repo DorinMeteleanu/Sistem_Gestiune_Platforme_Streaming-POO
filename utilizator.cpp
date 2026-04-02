@@ -48,15 +48,6 @@ void Utilizator::afisareDetalii() const {
     } else {
         std::cout << "Nu are abonament curent.\n";
     }
-    std::cout << "Continut Vizionat:\n";
-    for (const auto& cont : continutVizionat) {
-        cont->afisare();
-        std::cout << "-------------------\n";
-    }
-    std::cout << "\n--- Playlist-uri Create: ---\n";
-    for(const auto& p : playlisturi) {
-        p->afisarePlaylist();
-        std::cout << "-------------------\n";}
 }
 
 void Utilizator::adaugaPlaylistNou(Playlist* p) {

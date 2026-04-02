@@ -17,5 +17,7 @@ public:
     void afiseazaContinut();
     void stergeContinut();
     void adaugaUtilizator();
+    void stergeFisierDupaID();
+    void afiseazaUtilizatori();
     
 };

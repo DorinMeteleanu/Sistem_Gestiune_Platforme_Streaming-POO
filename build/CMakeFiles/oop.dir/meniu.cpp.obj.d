@@ -157,4 +157,8 @@ CMakeFiles/oop.dir/meniu.cpp.obj: \
  C:\Users\Dorin\Desktop\templateProiectPOO\Abonament.h \
  C:\Users\Dorin\Desktop\templateProiectPOO\playlist.h \
  C:\Users\Dorin\Desktop\templateProiectPOO\continutFilm.h \
- C:\Users\Dorin\Desktop\templateProiectPOO\clasaexceptie.h
+ C:\Users\Dorin\Desktop\templateProiectPOO\clasaexceptie.h \
+ C:\Users\Dorin\Desktop\templateProiectPOO\continutMelodie.h \
+ C:\Users\Dorin\Desktop\templateProiectPOO\continutVideoclipMuzical.h \
+ C:\Users\Dorin\Desktop\templateProiectPOO\abonamentStandard.h \
+ C:\Users\Dorin\Desktop\templateProiectPOO\abonamentPremium.h
