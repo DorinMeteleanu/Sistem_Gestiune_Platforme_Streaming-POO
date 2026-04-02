@@ -18,10 +18,19 @@ Utilizator& Utilizator::operator=(const Utilizator& altul) {
 }
 
 Utilizator::~Utilizator() {
+    if (abonamentCurent != nullptr) {
+        delete abonamentCurent;
+    }
+    for(auto p : playlisturi) {
+        delete p;
+    }
     std::cout << "Utilizatorul " << nume << " a fost sters.\n";
 }
 
 void Utilizator::setAbonament(Abonament* abNou) {
+    if (abonamentCurent != nullptr) {
+        delete abonamentCurent;
+    }
     abonamentCurent = abNou;
     std::cout << nume << " si-a actualizat abonamentul!\n";
 }
@@ -44,4 +53,13 @@ void Utilizator::afisareDetalii() const {
         cont->afisare();
         std::cout << "-------------------\n";
     }
+    std::cout << "\n--- Playlist-uri Create: ---\n";
+    for(const auto& p : playlisturi) {
+        p->afisarePlaylist();
+        std::cout << "-------------------\n";}
+}
+
+void Utilizator::adaugaPlaylistNou(Playlist* p) {
+    playlisturi.push_back(p);
+    std::cout << "Playlist nou adaugat pentru utilizatorul " << nume << "!\n";
 }

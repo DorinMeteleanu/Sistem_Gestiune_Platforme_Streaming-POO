@@ -16,14 +16,15 @@ else()
 endif()
 
 # Main executable
-add_executable(Proiect1
+add_executable(${PROJECT_NAME}
     main.cpp
     continutMedia.cpp
     continutFilm.cpp
     continutMelodie.cpp
-    continutPodcast.cpp
+    continutVideoclipMuzical.cpp
     abonament.cpp
     utilizator.cpp
+    playlist.cpp
     meniu.cpp
 )
 

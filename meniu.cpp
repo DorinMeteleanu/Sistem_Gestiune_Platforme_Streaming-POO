@@ -63,18 +63,22 @@ void Meniu::rulareMeniu() {
 
 void Meniu::adaugaContinut() {
     std::cout << "Adauga continut nou (ex: melodie, film, podcast)...\n";
-    std::string titlu, autor;
+    std::string titlu, autor, formatRatio, calitate;
     int durata;
+    double rating;
     
     std::cout << "Titlu film: "; std::cin >> titlu;
     std::cout << "Autor: "; std::cin >> autor;
+    std::cout << "Format Ratio: "; std::cin >> formatRatio;
+    std::cout << "Calitate: "; std::cin >> calitate;
     std::cout << "Durata (secunde): "; std::cin >> durata;
+    std::cout << "Rating: "; std::cin >> rating;
 
     if(durata <= 0) {
         throw ExceptiePlatforma("Eroare: Durata filmului trebuie sa fie pozitiva!");
     }
 
-    continutMedia* filmNou = new continutFilm(titlu, autor, durata, "1080p", "16:9", 8.5);
+    continutMedia* filmNou = new continutFilm(titlu, autor, durata, calitate, formatRatio, rating);
     continuturi.push_back(filmNou);
     std::cout << "Film adaugat cu succes!\n";
 }
@@ -96,4 +100,19 @@ void Meniu::stergeContinut() {
     }
     continuturi.clear();
     std::cout << "Tot continutul a fost sters.\n";
+}
+
+void Meniu::adaugaUtilizator() {
+    std::string nume;
+    std::cout << "\n--- ADAUGARE UTILIZATOR NOU ---\n";
+    std::cout << "Introduceti numele noului utilizator: ";
+    std::cin >> nume;
+
+    // Creăm un utilizator nou (deocamdată fără abonament)
+    Utilizator* uNou = new Utilizator(nume);
+    
+    // Îl adăugăm în vectorul platformei
+    utilizatori.push_back(uNou);
+    
+    std::cout << "Utilizatorul " << nume << " a fost inregistrat cu succes!\n";
 }
