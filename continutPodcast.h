@@ -1,3 +1,4 @@
+#pragma once
 #include "continutMelodie.h"
 #include "continutFilm.h"
 class Podcast : public continutMelodie, public continutFilm {

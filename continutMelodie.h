@@ -1,3 +1,4 @@
+#pragma once
 #include "continutMedia.h"
 class continutMelodie : virtual public continutMedia {
 protected:

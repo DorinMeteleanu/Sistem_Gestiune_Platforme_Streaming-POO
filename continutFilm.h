@@ -1,3 +1,4 @@
+#pragma once
 #include "continutMedia.h"
 class continutFilm : virtual public continutMedia {
 protected:
