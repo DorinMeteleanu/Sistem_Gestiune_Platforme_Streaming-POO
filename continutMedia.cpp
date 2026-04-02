@@ -25,5 +25,5 @@ continutMedia& continutMedia::operator=(const continutMedia& altul) {
 }
 
 continutMedia::~continutMedia() {
-    std::cout << "Fisierul " << titlu << "a fost sters\n";
+    std::cout << "Fisierul " << titlu << " a fost sters\n";
 }

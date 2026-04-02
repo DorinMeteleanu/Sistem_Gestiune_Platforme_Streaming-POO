@@ -16,9 +16,7 @@ continutMelodie::continutMelodie(const continutMelodie& altul)
 
 continutMelodie& continutMelodie::operator=(const continutMelodie& altul) {
     if(this != &altul) {
-        titlu = altul.titlu;
-        autor = altul.autor;
-        durata = altul.durata;
+        continutMedia::operator=(altul);
         gen = altul.gen;
         bitrate = altul.bitrate;
         areVideoclip = altul.areVideoclip;
@@ -27,5 +25,5 @@ continutMelodie& continutMelodie::operator=(const continutMelodie& altul) {
 }
 
 continutMelodie::~continutMelodie() {
-    std::cout << "Fisierul audio " << titlu << "a fost sters\n";
+    std::cout << "Fisierul audio " << titlu << " a fost sters\n";
 }

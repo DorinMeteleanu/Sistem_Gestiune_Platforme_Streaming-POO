@@ -15,9 +15,7 @@ continutFilm::continutFilm(const continutFilm& altul)
 
 continutFilm& continutFilm::operator=(const continutFilm& altul) {
     if(this != &altul) {
-        titlu = altul.titlu;
-        autor = altul.autor;
-        durata = altul.durata;
+        continutMedia::operator=(altul);
         rezolutie = altul.rezolutie;
         formatRatio = altul.formatRatio;
         rating = altul.rating;
