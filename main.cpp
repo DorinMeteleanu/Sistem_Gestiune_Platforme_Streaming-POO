@@ -1,6 +1,16 @@
-#include<iostream>
+#include <iostream>
+#include "Meniu.h"
 
-int main(){
-    std::cout<<"Hello world!";
+int main() {
+    std::cout << "Se incarca sistemul...\n";
+
+    Meniu::afisareStatusPlatforma();
+
+    Meniu platforma;
+
+    platforma.rulareMeniu();
+
+  
+    std::cout << "\nProgram incheiat cu succes.\n";
     return 0;
 }

@@ -3,7 +3,7 @@
 #include <string>
 
 class Abonament {
-private:
+protected:
     static int generator_ID_Abonament;
     int idAbonament;
     std::string numeClient;
@@ -14,7 +14,7 @@ public:
     Abonament(std::string nume, std::string tip, double pret, int durata);
     Abonament(const Abonament& altul);
     Abonament& operator=(const Abonament& altul);
-    ~Abonament();
-    void afisare() const;
+    virtual ~Abonament();
+    virtual void afisare() const = 0;
     std::string getTipAbonament() const {return tipAbonament;}
 };
