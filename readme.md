@@ -1,4 +1,4 @@
-## Platformă de Streaming - Sistem de Gestiune (C++ OOP)
+# Platformă de Streaming - Sistem de Gestiune (C++ OOP)
 
 Acest proiect este o aplicație C++ (Console-based) menită să simuleze sistemul de backend al unei platforme de streaming (tip Netflix/Spotify)
 
