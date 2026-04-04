@@ -26,7 +26,7 @@ void Meniu::afisareStatusPlatforma() {
 }
 
 void Meniu::rulareMeniu() {
-    int optiune;
+    int optiune = 0;
     do {
         std::cout << "\n=== PANOU DE GESTIUNE PLATFORMA ===\n";
         std::cout << "--- Management Continut ---\n";
@@ -43,7 +43,9 @@ void Meniu::rulareMeniu() {
         std::cout << "0. Inchidere Platforma\n";
         std::cout << "===================================\n";
         std::cout << "Selecteaza o actiune de gestiune: ";
-        std::cin >> optiune;
+        if (!(std::cin >> optiune)) {
+            break;
+        }
 
         try {
             switch (optiune) {
