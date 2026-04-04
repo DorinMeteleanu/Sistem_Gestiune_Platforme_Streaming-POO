@@ -1,7 +1,0 @@
-C:/Users/Dorin/Desktop/templateProiectPOO/build/CMakeFiles/oop.dir
-C:/Users/Dorin/Desktop/templateProiectPOO/build/CMakeFiles/edit_cache.dir
-C:/Users/Dorin/Desktop/templateProiectPOO/build/CMakeFiles/rebuild_cache.dir
-C:/Users/Dorin/Desktop/templateProiectPOO/build/CMakeFiles/list_install_components.dir
-C:/Users/Dorin/Desktop/templateProiectPOO/build/CMakeFiles/install.dir
-C:/Users/Dorin/Desktop/templateProiectPOO/build/CMakeFiles/install/local.dir
-C:/Users/Dorin/Desktop/templateProiectPOO/build/CMakeFiles/install/strip.dir
