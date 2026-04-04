@@ -9,7 +9,7 @@ public:
         : Abonament(nume, "Premium", pret, durata), are4K(true), nrDispozitiveConectate(4), accesPremiere("Acces exclusiv la avanpremiere"){}
     void afisare() const override {
         std::cout << "[Abonament PREMIUM] ID: " << idAbonament 
-                  << " | Client: " << numeClient << " | Pret: " << pretLunar << " RON\n" << "   -> Facilitati: Calitate 4K, " << nrDispozitiveConectate 
+                  << " | Client: " << numeClient << " | Pret: " << pretLunar << " RON\n" << "   -> Facilitati: Are 4K: " << (are4K ? "Da" : "Nu") << ", " << nrDispozitiveConectate 
                   << " dispozitive, " << accesPremiere << "\n";
     }
 };
