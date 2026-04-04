@@ -26,8 +26,8 @@ void Meniu::afisareStatusPlatforma() {
 }
 
 void Meniu::rulareMeniu() {
-    int optiune = 0;
-    do {
+    int optiune = -1;
+    while(true) {
         std::cout << "\n=== PANOU DE GESTIUNE PLATFORMA ===\n";
         std::cout << "--- Management Continut ---\n";
         std::cout << "1. Incarca Continut Nou pe Server\n";
@@ -45,7 +45,6 @@ void Meniu::rulareMeniu() {
         std::cout << "Selecteaza o actiune de gestiune: ";
         if (!(std::cin >> optiune)) {
             std::cin.clear(); 
-            std::cin.ignore(1000, '\n');
             break;
         }
 
@@ -85,12 +84,15 @@ void Meniu::rulareMeniu() {
                     break;
                 default:
                     std::cout << "Eroare: Comanda de gestiune invalida!\n";
+                    break;
             }
         } catch (const ExceptiePlatforma& e) {
             std::cout << "\n[ALERTA SISTEM]: " << e.what() << "\n";
         }
 
-    } while (optiune != 0);
+        optiune = -1;
+
+    } 
 }
 
 void Meniu::adaugaContinut() {
