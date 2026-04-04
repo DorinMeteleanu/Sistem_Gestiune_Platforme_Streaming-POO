@@ -1,4 +1,4 @@
-#include "Utilizator.h"
+#include "utilizator.h"
 
 Utilizator::Utilizator(std::string n, Abonament* ab) : nume(n), abonamentCurent(ab) {}
 
