@@ -1,6 +1,6 @@
 #pragma once
 #include "continutMedia.h"
-#include "Utilizator.h"
+#include "utilizator.h"
 #include "playlist.h"
 #include <vector>
 

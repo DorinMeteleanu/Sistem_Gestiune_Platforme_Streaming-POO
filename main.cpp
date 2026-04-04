@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Meniu.h"
+#include "meniu.h"
 
 int main() {
     std::cout << "Se incarca sistemul...\n";
