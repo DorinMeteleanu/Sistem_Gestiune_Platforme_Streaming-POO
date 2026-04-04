@@ -1,6 +1,7 @@
 #pragma once
 #include "continutMedia.h"
 #include "Utilizator.h"
+#include "playlist.h"
 #include <vector>
 
 class Meniu {
@@ -8,6 +9,7 @@ private:
     std::vector<continutMedia*> continuturi;
     std::vector<Utilizator*> utilizatori;
     static int sesiuniActive;
+    std::vector<Playlist*> playlisturiPlatforma;
 public:
     Meniu();
     ~Meniu();
@@ -19,5 +21,7 @@ public:
     void adaugaUtilizator();
     void stergeFisierDupaID();
     void afiseazaUtilizatori();
+    void crearePlaylistPlatforma();
+    void afiseazaPlaylisturiPlatforma();
     
 };

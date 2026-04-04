@@ -7,6 +7,7 @@
 #include "abonament.h" 
 #include "abonamentStandard.h"
 #include "abonamentPremium.h"
+#include "playlist.h"
 
 int Meniu::sesiuniActive = 0;
 
@@ -36,6 +37,9 @@ void Meniu::rulareMeniu() {
         std::cout << "--- Management Clienti ---\n";
         std::cout << "5. Inregistreaza Utilizator Nou in Sistem\n";
         std::cout << "6. Vizualizeaza toti Clientii\n";
+        std::cout << "--- Colectii Platforma (Playlisturi) ---\n";
+        std::cout << "7. Creeaza un playlist\n"; 
+        std::cout << "8. Afiseaza playlisturile platformei\n";
         std::cout << "0. Inchidere Platforma\n";
         std::cout << "===================================\n";
         std::cout << "Selecteaza o actiune de gestiune: ";
@@ -61,8 +65,14 @@ void Meniu::rulareMeniu() {
                 case 6:
                     afiseazaUtilizatori();
                     break;
+                case 7:
+                    crearePlaylistPlatforma();
+                    break;
+                case 8:
+                    afiseazaPlaylisturiPlatforma();
+                    break;
                 case 0:
-                    std::cout << "Se opresc serverele. Iesire din sistemul de gestiune...\n";
+                    std::cout << "Iesire din sistemul de gestiune...\n";
                     break;
                 default:
                     std::cout << "Eroare: Comanda de gestiune invalida!\n";
@@ -238,4 +248,55 @@ void Meniu::afiseazaUtilizatori() {
         std::cout << "\n";
     }
     std::cout << "----------------------------------\n";
+}
+
+void Meniu::crearePlaylistPlatforma() {
+    std::cout << "\n--- CREARE PLAYLIST --- \n";
+    if (continuturi.empty()) {
+        std::cout << "Eroare: Baza de date media este goala. Incarcati fisiere pe server mai intai.\n";
+        return;
+    }
+    std::string numePlaylist;
+    std::cout << "Numele noului Plyalist: ";
+    std::getline(std::cin >> std::ws, numePlaylist);
+    
+    Playlist* playlistNou = new Playlist(numePlaylist);
+    int idCautat;
+    char continua;
+    do {
+        std::cout << "Introduceti ID-ul fisierului media pe care vreti sa il adaugati: ";
+        std::cin >> idCautat;
+
+        bool fisierGasit = false;
+        for (auto cont : continuturi) {
+            if (cont->getId() == idCautat) {
+                playlistNou->adaugaInPlaylist(cont); // Sau cum se numeste metoda din Playlist.h
+                std::cout << "Fisierul a fost adaugat cu succes in colectie!\n";
+                fisierGasit = true;
+                break;
+            }
+        }
+
+        if (!fisierGasit) {
+            std::cout << "Eroare: Fisierul cu ID-ul " << idCautat << " nu exista pe server.\n";
+        }
+
+        std::cout << "Mai adaugati fisiere in '" << numePlaylist << "'? (D/N): ";
+        std::cin >> continua;
+    } while (continua == 'D' || continua == 'd');
+
+    playlisturiPlatforma.push_back(playlistNou);
+    std::cout << "\nColectia '" << numePlaylist << "' a fost publicata pe platforma!\n";
+}
+
+void Meniu::afiseazaPlaylisturiPlatforma() {
+    std::cout << "\n--- COLECTIILE PUBLICE ALE PLATFORMEI ---\n";
+    if (playlisturiPlatforma.empty()) {
+        std::cout << "Nu exista nicio colectie creata momentan.\n";
+        return;
+    }
+
+    for (auto p : playlisturiPlatforma) {
+        p->afisarePlaylist(); 
+    }
 }
