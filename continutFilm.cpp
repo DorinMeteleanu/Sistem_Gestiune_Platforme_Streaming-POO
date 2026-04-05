@@ -2,7 +2,7 @@
 #include <string>
 #include "continutFilm.h"
 
-continutFilm::continutFilm(std::string t, std::string a, int d, std::string rez, std::string fr, double r) 
+continutFilm::continutFilm(const std::string& t, const std::string& a, int d, const std::string& rez, const std::string& fr, double r) 
     : continutMedia(t, a, d), rezolutie(rez), formatRatio(fr), rating(r) {}
 
 void continutFilm::afisare() const {

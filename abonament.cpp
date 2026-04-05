@@ -4,7 +4,7 @@
 
 int Abonament::generator_ID_Abonament = 1;
 
-Abonament::Abonament(std::string nume, std::string tip, double pret, int durata) 
+Abonament::Abonament(const std::string& nume, const std::string& tip, double pret, int durata) 
     : numeClient(nume), tipAbonament(tip), pretLunar(pret), durataLuni(durata) {
     generator_ID_Abonament++;
     idAbonament = generator_ID_Abonament;

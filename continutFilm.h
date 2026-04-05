@@ -6,7 +6,7 @@ protected:
     std::string formatRatio;
     double rating;
 public:
-    continutFilm(std::string t, std::string a, int d, std::string rez, std::string fr, double r);
+    continutFilm(const std::string& t, const std::string& a, int d, const std::string& rez, const std::string& fr, double r);
     continutFilm(const continutFilm& altul);
     continutFilm& operator=(const continutFilm& altul);
     ~continutFilm();

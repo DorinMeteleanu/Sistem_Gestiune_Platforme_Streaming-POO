@@ -2,7 +2,7 @@
 #include <string>
 #include "continutVideoclipMuzical.h"
 
-VideoclipMuzical::VideoclipMuzical(std::string t, std::string a, int d, std::string g, int b, std::string rez, std::string fr, double r, std::string alb, std::string reg) 
+VideoclipMuzical::VideoclipMuzical(const std::string& t, const std::string& a, int d, const std::string& g, int b, const std::string& rez, const std::string& fr, double r, const std::string& alb, const std::string& reg) 
     : continutMedia(t, a, d), continutMelodie(t, a, d, g, b, true), continutFilm(t, a, d, rez, fr, r), album(alb), regizor(reg) {}
 
 VideoclipMuzical::VideoclipMuzical(const VideoclipMuzical& altul) 

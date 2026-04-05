@@ -6,7 +6,7 @@ protected:
     int bitrate;
     bool areVideoclip;
 public:
-    continutMelodie(std::string t, std::string a, int d, std::string g, int b, bool av);
+    continutMelodie(const std::string& t, const std::string& a, int d, const std::string& g, int b, bool av);
     continutMelodie(const continutMelodie& altul);
     continutMelodie& operator=(const continutMelodie& altul);
     ~continutMelodie();

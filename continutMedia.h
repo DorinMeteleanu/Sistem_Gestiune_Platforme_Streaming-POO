@@ -11,7 +11,7 @@ protected:
     int durata; //durata va fi in secunde
 
 public:
-    continutMedia(std::string t, std::string a, int d);
+    continutMedia(const std::string& t, const std::string& a, int d);
     continutMedia(const continutMedia& altul);
     continutMedia& operator=(const continutMedia& altul);
     virtual ~continutMedia();

@@ -11,7 +11,7 @@ protected:
     double pretLunar;
     int durataLuni;
 public:
-    Abonament(std::string nume, std::string tip, double pret, int durata);
+    Abonament(const std::string& nume, const std::string& tip, double pret, int durata);
     Abonament(const Abonament& altul);
     Abonament& operator=(const Abonament& altul);
     virtual ~Abonament();

@@ -4,7 +4,7 @@
 
 int continutMedia::generator_ID = 0;
 
-continutMedia::continutMedia(std::string t, std::string a, int d) : titlu(t), autor(a), durata(d) {
+continutMedia::continutMedia(const std::string& t, const std::string& a, int d) : titlu(t), autor(a), durata(d) {
     generator_ID++;
     ID = generator_ID;
 

@@ -2,7 +2,7 @@
 #include <string>
 #include "continutMelodie.h"
 
-continutMelodie::continutMelodie(std::string t, std::string a, int d, std::string g, int b, bool av) 
+continutMelodie::continutMelodie(const std::string& t, const std::string& a, int d, const std::string& g, int b, bool av) 
     : continutMedia(t, a, d), gen(g), bitrate(b), areVideoclip(av) {}
 
 void continutMelodie::afisare() const {

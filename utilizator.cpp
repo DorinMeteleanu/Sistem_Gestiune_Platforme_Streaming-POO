@@ -1,6 +1,6 @@
 #include "utilizator.h"
 
-Utilizator::Utilizator(std::string n, Abonament* ab) : nume(n), abonamentCurent(ab) {}
+Utilizator::Utilizator(const std::string& n, Abonament* ab) : nume(n), abonamentCurent(ab) {}
 
 Utilizator::Utilizator(const Utilizator& altul) {
     nume = altul.nume;
