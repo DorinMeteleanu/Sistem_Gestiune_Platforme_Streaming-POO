@@ -1,6 +1,6 @@
 #include "playlist.h"
 
-Playlist::Playlist(std::string nume) : numePlaylist(nume) {}
+Playlist::Playlist(const std::string& nume) : numePlaylist(nume) {}
 
 Playlist::Playlist(const Playlist& altul) : numePlaylist(altul.numePlaylist), listaContinut(altul.listaContinut) {}
 

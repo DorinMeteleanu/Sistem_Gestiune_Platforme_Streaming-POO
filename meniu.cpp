@@ -44,6 +44,7 @@ void Meniu::rulareMeniu() {
         std::cout << "===================================\n";
         std::cout << "Selecteaza o actiune de gestiune: ";
         if (!(std::cin >> optiune)) {
+            
             std::cin.clear(); 
             break;
         }

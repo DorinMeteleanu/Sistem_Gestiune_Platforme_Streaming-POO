@@ -5,7 +5,7 @@ private:
     int nrDispozitiveConectate;
     std::string accesPremiere;
 public:
-    AbonamentPremium(std::string nume, double pret, int durata) 
+    AbonamentPremium(const std::string& nume, double pret, int durata) 
         : Abonament(nume, "Premium", pret, durata), are4K(true), nrDispozitiveConectate(4), accesPremiere("Acces exclusiv la avanpremiere"){}
     void afisare() const override {
         std::cout << "[Abonament PREMIUM] ID: " << idAbonament 

@@ -10,7 +10,7 @@ private:
     std::vector<continutMedia*> listaContinut;
 
 public:
-    Playlist(std::string nume);
+    Playlist(const std::string& nume);
     Playlist(const Playlist& altul);
     Playlist& operator=(const Playlist& altul);
     ~Playlist();
