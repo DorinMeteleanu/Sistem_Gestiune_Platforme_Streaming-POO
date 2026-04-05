@@ -38,9 +38,10 @@ void Meniu::rulareMeniu() {
         std::cout << "--- Management Clienti ---\n";
         std::cout << "5. Inregistreaza Utilizator Nou in Sistem\n";
         std::cout << "6. Vizualizeaza toti Clientii\n";
+        std::cout << "7. Modifica Abonament Utilizator\n";
         std::cout << "--- Colectii Platforma (Playlisturi) ---\n";
-        std::cout << "7. Creeaza un playlist\n"; 
-        std::cout << "8. Afiseaza playlisturile platformei\n";
+        std::cout << "8. Creeaza un playlist\n"; 
+        std::cout << "9. Afiseaza playlisturile platformei\n";
         std::cout << "0. Inchidere Platforma\n";
         std::cout << "===================================\n";
         std::cout << "Selecteaza o actiune de gestiune: ";
@@ -76,9 +77,12 @@ void Meniu::rulareMeniu() {
                     afiseazaUtilizatori();
                     break;
                 case 7:
-                    crearePlaylistPlatforma();
+                    modificaAbonamentUtilizator();
                     break;
                 case 8:
+                    crearePlaylistPlatforma();
+                    break;
+                case 9:
                     afiseazaPlaylisturiPlatforma();
                     break;
                 case 0:
@@ -256,6 +260,39 @@ void Meniu::afiseazaUtilizatori() {
         std::cout << "\n";
     }
     std::cout << "----------------------------------\n";
+}
+
+void Meniu::modificaAbonamentUtilizator() {
+    if (utilizatori.empty()) {
+        std::cout << "Eroare: Nu exista utilizatori inregistrati pe platforma.\n";
+        return;
+    }
+
+    std::string numeCautat;
+    std::cout << "Introduceti numele utilizatorului pentru schimbarea abonamentului: ";
+    std::getline(std::ws(std::cin), numeCautat);
+
+    auto it = std::find_if(utilizatori.begin(), utilizatori.end(), [&numeCautat](const Utilizator* u) { return u->getNume() == numeCautat; });
+
+    if (it != utilizatori.end()) {
+        int tip;
+        std::cout << "Abonamente disponibile:\n1. Standard\n2. Premium\nSelectati noul tip: ";
+        std::cin >> tip;
+
+        Abonament* noulAb = nullptr;
+        if (tip == 1) {
+            noulAb = new AbonamentStandard(numeCautat, 29.99, 1);
+        } else if (tip == 2) {
+            noulAb = new AbonamentPremium(numeCautat, 49.99, 1);
+        } else {
+            std::cout << "Optiune invalida.\n";
+            return;
+        }
+
+        (*it)->setAbonament(noulAb); 
+    } else {
+        std::cout << "Eroare: Utilizatorul '" << numeCautat << "' nu a fost gasit.\n";
+    }
 }
 
 void Meniu::crearePlaylistPlatforma() {

@@ -23,5 +23,6 @@ public:
     void afiseazaUtilizatori();
     void crearePlaylistPlatforma();
     void afiseazaPlaylisturiPlatforma();
+    void modificaAbonamentUtilizator();
     
 };
