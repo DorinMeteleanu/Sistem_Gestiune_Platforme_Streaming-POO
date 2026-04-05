@@ -200,7 +200,7 @@ void Meniu::stergeFisierDupaID() {
     std::cout << "Introduceti ID-ul fisierului pe care doriti sa-l stergeti: ";
     std::cin >> idCautat;
 
-    auto it = std::find_if(continuturi.begin(), continuturi.end(), [idCautat](continutMedia* c) { return c->getId() == idCautat; });
+    auto it = std::find_if(continuturi.begin(), continuturi.end(), [idCautat](const continutMedia* c) { return c->getId() == idCautat; });
 
     if (it != continuturi.end()) {
         delete *it;
@@ -275,8 +275,7 @@ void Meniu::crearePlaylistPlatforma() {
         std::cout << "Introduceti ID-ul fisierului media pe care vreti sa il adaugati: ";
         std::cin >> idCautat;
 
-        auto it = std::find_if(continuturi.begin(), continuturi.end(),
-                               [idCautat](continutMedia* c) { return c->getId() == idCautat; });
+        auto it = std::find_if(continuturi.begin(), continuturi.end(), [idCautat](const continutMedia* c) { return c->getId() == idCautat; });
 
         if (it != continuturi.end()) {
             playlistNou->adaugaInPlaylist(*it);
