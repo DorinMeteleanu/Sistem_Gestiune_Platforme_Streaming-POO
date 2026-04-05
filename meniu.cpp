@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 #include "meniu.h"
 #include "continutFilm.h"
 #include "clasaexceptie.h"
@@ -199,18 +200,13 @@ void Meniu::stergeFisierDupaID() {
     std::cout << "Introduceti ID-ul fisierului pe care doriti sa-l stergeti: ";
     std::cin >> idCautat;
 
-    bool gasit = false;
-    
-    for (auto it = continuturi.begin(); it != continuturi.end(); ++it) {
-        if ((*it)->getId() == idCautat) { 
-            delete *it;
-            continuturi.erase(it); 
-            gasit = true;
-            break; 
-        }
-    }
+    auto it = std::find_if(continuturi.begin(), continuturi.end(), [idCautat](continutMedia* c) { return c->getId() == idCautat; });
 
-    if (!gasit) {
+    if (it != continuturi.end()) {
+        delete *it;
+        continuturi.erase(it);
+        std::cout << "Fisierul a fost sters cu succes.\n";
+    } else {
         std::cout << "Eroare: Nu a fost gasit niciun fisier cu ID-ul " << idCautat << "!\n";
     }
 }
@@ -279,17 +275,13 @@ void Meniu::crearePlaylistPlatforma() {
         std::cout << "Introduceti ID-ul fisierului media pe care vreti sa il adaugati: ";
         std::cin >> idCautat;
 
-        bool fisierGasit = false;
-        for (auto cont : continuturi) {
-            if (cont->getId() == idCautat) {
-                playlistNou->adaugaInPlaylist(cont); // Sau cum se numeste metoda din Playlist.h
-                std::cout << "Fisierul a fost adaugat cu succes in colectie!\n";
-                fisierGasit = true;
-                break;
-            }
-        }
+        auto it = std::find_if(continuturi.begin(), continuturi.end(),
+                               [idCautat](continutMedia* c) { return c->getId() == idCautat; });
 
-        if (!fisierGasit) {
+        if (it != continuturi.end()) {
+            playlistNou->adaugaInPlaylist(*it);
+            std::cout << "Fisierul a fost adaugat cu succes in colectie!\n";
+        } else {
             std::cout << "Eroare: Fisierul cu ID-ul " << idCautat << " nu exista pe server.\n";
         }
 
