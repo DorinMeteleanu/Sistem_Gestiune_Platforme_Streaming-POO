@@ -20,6 +20,7 @@ continutMedia& continutMedia::operator=(const continutMedia& altul) {
         titlu = altul.titlu;
         autor = altul.autor;
         durata = altul.durata;
+        ID = altul.ID;
     }
     return *this;
 }

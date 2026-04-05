@@ -26,6 +26,7 @@ Abonament& Abonament::operator=(const Abonament& altul) {
         tipAbonament = altul.tipAbonament;
         pretLunar = altul.pretLunar;
         durataLuni = altul.durataLuni;
+        idAbonament = altul.idAbonament;
     }
     return *this;
 }

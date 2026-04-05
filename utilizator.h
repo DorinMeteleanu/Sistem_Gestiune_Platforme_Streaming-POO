@@ -13,7 +13,7 @@ private:
     std::vector<continutMedia*> continutVizionat;
     std::vector<Playlist*> playlisturi;
 public:
-    Utilizator(const std::string& n, Abonament* ab = nullptr);
+    explicit Utilizator(const std::string& n, Abonament* ab = nullptr);
     Utilizator(const Utilizator& altul);
     Utilizator& operator=(const Utilizator& altul);
     ~Utilizator();
