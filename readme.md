@@ -31,7 +31,7 @@ Totul este controlat printr-un meniu intuitiv, direct în consolă.
 * **Managementul Sigur al Memoriei:** Fiecare clasă are constructori de copiere, operatori de atribuire și destructori bine definiți. 
 * **Tratarea Excepțiilor:** Erorile (cum ar fi introducerea de date invalide) sunt gestionate elegant prin clasa personalizată `ExceptiePlatforma`, prevenind blocarea bruscă a programului.
 
-Starea internă a tuturor entităților este strict protejată prin modificatorii de acces private și protected. Niciun modul extern (nici măcar clasa controller Meniu) nu poate modifica direct durata unui film sau tipul unui abonament după instanțiere. Manipularea datelor se face exclusiv prin constructori și metode publice de tip "getter", respectând astfel principiul minimului privilegiu (Principle of Least Privilege).
+Starea internă a tuturor entităților este strict protejată prin modificatorii de acces private și protected. Niciun modul extern (nici măcar clasa controller Meniu) nu poate modifica direct durata unui film sau tipul unui abonament după instanțiere. Manipularea datelor se face exclusiv prin constructori și metode publice de tip "getter".
 
 Orice clasă din cadrul proiectului care manipulează memorie alocată pe Heap a fost constrânsă să respecte „Regula celor Trei” (The Rule of Three): 
   - Destructorul Virtual: Declararea destructorului clasei de bază ca virtual ~continutMedia() garantează că, în momentul apelării comenzii delete pe un pointer de bază, curățarea memoriei coboară recursiv pe ierarhie până la nivelul cel mai derivat, ștergând complet structura obiectului.
