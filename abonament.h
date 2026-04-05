@@ -16,5 +16,4 @@ public:
     Abonament& operator=(const Abonament& altul);
     virtual ~Abonament();
     virtual void afisare() const = 0;
-    std::string getTipAbonament() const {return tipAbonament;}
 };

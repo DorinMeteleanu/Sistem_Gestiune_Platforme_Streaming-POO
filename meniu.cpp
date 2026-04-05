@@ -308,7 +308,7 @@ void Meniu::afiseazaPlaylisturiPlatforma() {
         return;
     }
 
-    for (auto p : playlisturiPlatforma) {
+    for (const auto p : playlisturiPlatforma) {
         p->afisarePlaylist(); 
     }
 }

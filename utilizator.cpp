@@ -2,11 +2,7 @@
 
 Utilizator::Utilizator(const std::string& n, Abonament* ab) : nume(n), abonamentCurent(ab) {}
 
-Utilizator::Utilizator(const Utilizator& altul) {
-    nume = altul.nume;
-    abonamentCurent = altul.abonamentCurent; 
-    continutVizionat = altul.continutVizionat; 
-}
+Utilizator::Utilizator(const Utilizator& altul) : nume(altul.nume), abonamentCurent(altul.abonamentCurent), continutVizionat(altul.continutVizionat) {}
 
 Utilizator& Utilizator::operator=(const Utilizator& altul) {
     if (this != &altul) {
@@ -48,9 +44,4 @@ void Utilizator::afisareDetalii() const {
     } else {
         std::cout << "Nu are abonament curent.\n";
     }
-}
-
-void Utilizator::adaugaPlaylistNou(Playlist* p) {
-    playlisturi.push_back(p);
-    std::cout << "Playlist nou adaugat pentru utilizatorul " << nume << "!\n";
 }

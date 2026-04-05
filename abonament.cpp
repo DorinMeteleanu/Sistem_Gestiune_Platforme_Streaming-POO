@@ -10,11 +10,7 @@ Abonament::Abonament(const std::string& nume, const std::string& tip, double pre
     idAbonament = generator_ID_Abonament;
 }
 
-Abonament::Abonament(const Abonament& altul) {
-    numeClient = altul.numeClient;
-    tipAbonament = altul.tipAbonament;
-    pretLunar = altul.pretLunar;
-    durataLuni = altul.durataLuni;
+Abonament::Abonament(const Abonament& altul) : numeClient(altul.numeClient), tipAbonament(altul.tipAbonament), pretLunar(altul.pretLunar), durataLuni(altul.durataLuni){
     generator_ID_Abonament++;
     idAbonament = generator_ID_Abonament;
 

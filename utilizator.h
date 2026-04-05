@@ -21,6 +21,5 @@ public:
     void setAbonament(Abonament* abNou);
     void adaugaContinut(continutMedia* cont);
     void afisareDetalii() const;
-    void adaugaPlaylistNou(Playlist* p);
     std::string getNume() const { return nume; }
 };

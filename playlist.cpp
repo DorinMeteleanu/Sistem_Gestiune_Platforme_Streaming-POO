@@ -23,7 +23,7 @@ void Playlist::adaugaInPlaylist(continutMedia* cont) {
 
 void Playlist::afisarePlaylist() const {
     std::cout << "Playlist: " << numePlaylist << "\n";
-    for (const auto& cont : listaContinut) {
+    for (const auto* cont : listaContinut) {
         cont->afisare();
         std::cout << "-------------------\n";
     }
