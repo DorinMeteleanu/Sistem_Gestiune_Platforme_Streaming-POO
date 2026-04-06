@@ -27,7 +27,7 @@ Platforma suportă mai multe tipuri de conținut, fiecare cu proprietăți speci
 Totul este controlat printr-un meniu intuitiv, direct în consolă. 
 
 * **Moștenire și Ierarhie:** Există o clasă de bază `ContinutMedia` din care derivă `ContinutFilm` și `ContinutMelodie`. Clasa `VideoclipMuzical` folosește *moștenirea multiplă* pentru a prelua caracteristici din ambele.
-* **Polimorfism:** Fiecare tip de conținut știe cum să se afișeze corect, indiferent de context, datorită funcțiilor virtuale.
+* **Polimorfism:** Fiecare tip de conținut știe cum să se afișeze corect, indiferent de context, datorită funcțiilor virtuale. De asemenea, la redarea unui conținut afișarea se face personalizat prin polimorfism, astfel că programul știe dacă trebuie să redea un film, o melodie sau un videoclip muzical.
 * **Managementul Sigur al Memoriei:** Fiecare clasă are constructori de copiere, operatori de atribuire și destructori bine definiți. 
 * **Tratarea Excepțiilor:** Erorile (cum ar fi introducerea de date invalide) sunt gestionate elegant prin clasa personalizată `ExceptiePlatforma`, prevenind blocarea bruscă a programului.
 
@@ -39,6 +39,8 @@ Orice clasă din cadrul proiectului care manipulează memorie alocată pe Heap a
   - Operatorul de Atribuire: Suprascrierea operator= a inclus mecanisme de protecție împotriva auto-atribuirii (if (this != &altul)), curățând memoria veche înainte de alocarea și copierea noii stări.
 
 Toate colecțiile de date din sistem (baza de date principală, playlist-urile globale, istoricul utilizatorilor) sunt stocate ca structuri liniare de tip std::vector<continutMedia*>. Interacțiunea sistemului cu aceste colecții demonstrează polimorfismul mediat de tabela de funcții virtuale. Când sistemul iterează prin baza de date pentru afișare, decizia privind funcția care trebuie apelată se ia la runtime, în funcție de adresa concretă din memorie.
+
+Meniul interactiv permite o multitudine de funcții de gestiune precum adăugarea de conținut în vaza de date, adăugarea de clienți, de playlisturi și melodii în cadrul acestora dar și opțiuni precum modificarea abonamentelor unor clienți, căutarea de melodii după ID și ștergerea acestora sau redarea de conținut. Opțiunile sunt afișate intuitiv în terminal
 
 Un exemplu de funcție pe care doresc să o adaug este cea de separare de conținut în funcție de abonamente, adică unele conținuturi să poată fi accesate doar de utilizatorii cu abonamente Premium. De asemenea, doresc să îmbunătățesc baza de utilizatori și să adaug funcții aferente acesteia, precum să le creez istoric de vizionare sau de achizitii (abonamente) și să îi integrez mai mult în partea de gestiune
  
