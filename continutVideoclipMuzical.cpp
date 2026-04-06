@@ -33,4 +33,8 @@ void VideoclipMuzical::afisare() const {
                 << "Are videoclip: " << (areVideoclip ? "Da" : "Nu") << "\n" 
                 << "Rezolutie: " << rezolutie << "\n" << "Format Ratio: " << formatRatio << "\n" << "Rating: " << rating << "\n"
                 << "Album: " << album << "\n" << "Regizor: " << regizor << "\n";
-};
+}
+
+void VideoclipMuzical::redaContinut() const {
+    std::cout << "[PLAYER VIDEO MUZICAL] Redare videoclip: '" << titlu << "', regizat de " << regizor << "...\n";
+}

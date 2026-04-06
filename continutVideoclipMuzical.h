@@ -11,4 +11,5 @@ public:
     VideoclipMuzical& operator=(const VideoclipMuzical& altul);
     ~VideoclipMuzical();
     void afisare() const override;
+    void redaContinut() const override;
 };

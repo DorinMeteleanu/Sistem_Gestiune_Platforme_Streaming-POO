@@ -11,6 +11,10 @@ void continutMelodie::afisare() const {
                 << "Are videoclip: " << (areVideoclip ? "Da" : "Nu") << "\n";
 }
 
+void continutMelodie::redaContinut() const {
+    std::cout << "[PLAYER AUDIO] Redare melodie: '" << titlu << "' la claritatea " << bitrate << " kbps" << ", autor" << autor << "...\n";
+}
+
 continutMelodie::continutMelodie(const continutMelodie& altul) 
     : continutMedia(altul), gen(altul.gen), bitrate(altul.bitrate), areVideoclip(altul.areVideoclip) {}
 

@@ -15,6 +15,7 @@ public:
     continutMedia(const continutMedia& altul);
     continutMedia& operator=(const continutMedia& altul);
     virtual ~continutMedia();
-    virtual void afisare() const = 0; //o sa pun pentru fiecare clasa copil functie personalzata de afisare
+    virtual void afisare() const = 0; //polimorf. o sa pun pentru fiecare clasa copil functie personalzata de afisare
+    virtual void redaContinut() const = 0; //polimorf.
     int getId() const { return ID; } 
 };

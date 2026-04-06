@@ -11,5 +11,6 @@ public:
     continutMelodie& operator=(const continutMelodie& altul);
     ~continutMelodie();
     void afisare() const override;
+    void redaContinut() const override;
 
 };

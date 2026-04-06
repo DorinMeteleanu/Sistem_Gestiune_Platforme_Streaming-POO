@@ -35,13 +35,14 @@ void Meniu::rulareMeniu() {
         std::cout << "2. Vizualizeaza Baza de Date Continut\n";
         std::cout << "3. Sterge un anumit Fisier (dupa ID)\n";
         std::cout << "4. Sterge tot Continutul (Reset Server)\n";
+        std::cout << "5. Reda un anumit Continut\n";
         std::cout << "--- Management Clienti ---\n";
-        std::cout << "5. Inregistreaza Utilizator Nou in Sistem\n";
-        std::cout << "6. Vizualizeaza toti Clientii\n";
-        std::cout << "7. Modifica Abonament Utilizator\n";
+        std::cout << "6. Inregistreaza Utilizator Nou in Sistem\n";
+        std::cout << "7. Vizualizeaza toti Clientii\n";
+        std::cout << "8. Modifica Abonament Utilizator\n";
         std::cout << "--- Colectii Platforma (Playlisturi) ---\n";
-        std::cout << "8. Creeaza un playlist\n"; 
-        std::cout << "9. Afiseaza playlisturile platformei\n";
+        std::cout << "9. Creeaza un playlist\n"; 
+        std::cout << "10. Afiseaza playlisturile platformei\n";
         std::cout << "0. Inchidere Platforma\n";
         std::cout << "===================================\n";
         std::cout << "Selecteaza o actiune de gestiune: ";
@@ -71,18 +72,21 @@ void Meniu::rulareMeniu() {
                     stergeContinut();
                     break;
                 case 5:
-                    adaugaUtilizator();
+                    redaContinutMedia();
                     break;
                 case 6:
-                    afiseazaUtilizatori();
+                    adaugaUtilizator();
                     break;
                 case 7:
-                    modificaAbonamentUtilizator();
+                    afiseazaUtilizatori();
                     break;
                 case 8:
-                    crearePlaylistPlatforma();
+                    modificaAbonamentUtilizator();
                     break;
                 case 9:
+                    crearePlaylistPlatforma();
+                    break;
+                case 10:
                     afiseazaPlaylisturiPlatforma();
                     break;
                 case 0:
@@ -117,7 +121,12 @@ void Meniu::adaugaContinut() {
     std::cout << "\n[Detalii Generale]\n";
     std::cout << "Titlu: "; std::getline(std::cin >> std::ws, titlu);
     std::cout << "Autor/Artist: "; std::getline(std::cin >> std::ws, autor);
-    std::cout << "Durata (secunde): "; std::cin >> durata;
+    std::cout << "Durata (secunde): ";
+    if (!(std::cin >> durata)) {
+            std::cin.clear();
+            std::cin.ignore(1000, '\n'); 
+            throw ExceptiePlatforma("Eroare: Trebuie sa introduci doar un numar!"); 
+    }
 
     if(durata <= 0) {
         throw ExceptiePlatforma("Eroare: Durata trebuie sa fie pozitiva!");
@@ -131,7 +140,12 @@ void Meniu::adaugaContinut() {
         std::cout << "\n[Detalii Video]\n";
         std::cout << "Format Ratio: "; std::getline(std::cin >> std::ws, formatRatio);
         std::cout << "Calitate: "; std::getline(std::cin >> std::ws, calitate);
-        std::cout << "Rating: "; std::cin >> rating;
+        std::cout << "Rating: "; 
+        if (!(std::cin >> rating)) {
+            std::cin.clear();
+            std::cin.ignore(1000, '\n'); 
+            throw ExceptiePlatforma("Eroare: Trebuie sa introduci un numar real (ex: 9.2)!"); 
+        }
         
         fisierNou = new continutFilm(titlu, autor, durata, calitate, formatRatio, rating);
     } 
@@ -141,7 +155,12 @@ void Meniu::adaugaContinut() {
         bool areVideo;
         std::cout << "\n[Detalii Audio]\n";
         std::cout << "Gen Muzical: "; std::getline(std::cin >> std::ws, genMuzical);
-        std::cout << "Bitrate Audio (ex: 320): "; std::cin >> bitrate;
+        std::cout << "Bitrate Audio (ex: 320): "; 
+        if (!(std::cin >> bitrate)) {
+            std::cin.clear();
+            std::cin.ignore(1000, '\n'); 
+            throw ExceptiePlatforma("Eroare: Trebuie sa introduci un numar!"); 
+        }
         std::cout << "Are Videoclip? (1/0): "; std::cin >> areVideoOpt;
         areVideo = (areVideoOpt == 1); 
         fisierNou = new continutMelodie(titlu, autor, durata, genMuzical, bitrate, areVideo);
@@ -152,12 +171,23 @@ void Meniu::adaugaContinut() {
         double rating;
         std::cout << "\n[Detalii Audio]\n";
         std::cout << "Gen Muzical: "; std::getline(std::cin >> std::ws, genMuzical);
-        std::cout << "Bitrate Audio: "; std::cin >> bitrate;
+        std::cout << "Bitrate Audio: ";
+        std::cout << "Introduceti bitrate: ";
+        if (!(std::cin >> bitrate)) {
+            std::cin.clear();
+            std::cin.ignore(1000, '\n'); 
+            throw ExceptiePlatforma("Eroare: Trebuie sa introduci un numar!"); 
+        }
 
         std::cout << "\n[Detalii Video]\n";
         std::cout << "Calitate: "; std::getline(std::cin >> std::ws, calitate);
         std::cout << "Format Ratio: "; std::getline(std::cin >> std::ws, formatRatio);
-        std::cout << "Rating: "; std::cin >> rating;
+        std::cout << "Rating: "; 
+        if (!(std::cin >> rating)) {
+            std::cin.clear();
+            std::cin.ignore(1000, '\n'); 
+            throw ExceptiePlatforma("Eroare: Trebuie sa introduci un numar real (ex: 9.2)!"); 
+        }
 
         std::cout << "\n[Detalii Videoclip]\n";
         std::cout << "Album asociat: "; std::getline(std::cin >> std::ws, album);
@@ -339,4 +369,34 @@ void Meniu::afiseazaPlaylisturiPlatforma() {
     for (const auto p : playlisturiPlatforma) {
         p->afisarePlaylist(); 
     }
+}
+
+void Meniu::redaContinutMedia() {
+    if (continuturi.empty()) {
+        std::cout << "Eroare: Baza de date este goala. Nu exista continut de redat.\n";
+        return;
+    }
+
+    int idCautat;
+    std::cout << "Introduceti ID-ul continutului pe care doriti sa il redati (Play): ";
+    
+    if (!(std::cin >> idCautat)) {
+        std::cin.clear();
+        std::cin.ignore(1000, '\n');
+        throw ExceptiePlatforma("Input invalid pentru ID-ul de redare!");
+    }
+
+    auto it = std::find_if(continuturi.begin(), continuturi.end(), [idCautat](const continutMedia* c) { return c->getId() == idCautat; });
+
+    if (it != continuturi.end()) {
+        std::cout << "\n==================================================\n";
+        (*it)->redaContinut(); 
+        std::cout << "==================================================\n";
+    } else {
+        std::cout << "Eroare: Continutul cu ID-ul " << idCautat << " nu a fost gasit pe platforma.\n";
+    }
+
+    std::cout << "\nApasati tasta ENTER pentru a reveni la meniu...";
+    std::cin.ignore(1000, '\n');
+    std::cin.get();
 }

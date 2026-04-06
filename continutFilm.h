@@ -11,5 +11,6 @@ public:
     continutFilm& operator=(const continutFilm& altul);
     ~continutFilm();
     void afisare() const override;
+    void redaContinut() const override;
 
 };

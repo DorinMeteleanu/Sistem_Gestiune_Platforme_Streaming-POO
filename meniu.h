@@ -24,5 +24,6 @@ public:
     void crearePlaylistPlatforma();
     void afiseazaPlaylisturiPlatforma();
     void modificaAbonamentUtilizator();
+    void redaContinutMedia();
     
 };
