@@ -24,7 +24,7 @@ Platforma suportă mai multe tipuri de conținut, fiecare cu proprietăți speci
 
 ## Arhitectura Proiectului 
 
-Totul este controlat printr-un meniu intuitiv, direct în consolă. 
+* Totul este controlat printr-un meniu intuitiv, direct în consolă. 
 
 * **Moștenire și Ierarhie:** Există o clasă de bază `ContinutMedia` din care derivă `ContinutFilm` și `ContinutMelodie`. Clasa `VideoclipMuzical` folosește *moștenirea multiplă* pentru a prelua caracteristici din ambele.
 * **Polimorfism:** Fiecare tip de conținut știe cum să se afișeze corect, indiferent de context, datorită funcțiilor virtuale. De asemenea, la redarea unui conținut afișarea se face personalizat prin polimorfism, astfel că programul știe dacă trebuie să redea un film, o melodie sau un videoclip muzical.
