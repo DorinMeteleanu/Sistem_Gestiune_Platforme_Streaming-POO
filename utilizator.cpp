@@ -44,4 +44,8 @@ void Utilizator::afisareDetalii() const {
     } else {
         std::cout << "Nu are abonament curent.\n";
     }
+    if (abonamentCurent != nullptr) {
+    std::cout << " -> Ecrane permise simultan: " 
+              << abonamentCurent->getNumarEcrane() << "\n";
+    }
 }

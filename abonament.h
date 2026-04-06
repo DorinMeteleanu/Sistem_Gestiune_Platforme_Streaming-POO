@@ -16,4 +16,5 @@ public:
     Abonament& operator=(const Abonament& altul);
     virtual ~Abonament();
     virtual void afisare() const = 0;
+    virtual int getNumarEcrane() const = 0;
 };

@@ -12,4 +12,7 @@ public:
                   << " | Client: " << numeClient << " | Pret: " << pretLunar << " RON\n" << "   -> Facilitati: Are 4K: " << (are4K ? "Da" : "Nu") << ", " << nrDispozitiveConectate 
                   << " dispozitive, " << accesPremiere << "\n";
     }
+    int getNumarEcrane() const override { 
+        return 4; 
+    }
 };

@@ -251,6 +251,12 @@ void Meniu::adaugaUtilizator() {
     std::cout << "Introduceti numele noului client: ";
     std::getline(std::cin >> std::ws, nume);
 
+    auto it = std::find_if(utilizatori.begin(), utilizatori.end(), [nume](const Utilizator* u) { return u->getNume() == nume; });
+
+    if (it != utilizatori.end()) {
+        throw ExceptiePlatforma("Nume duplicat! Clientul exista deja in baza de date.");
+    }
+
     Utilizator* uNou = new Utilizator(nume);
 
     std::cout << "Ce tip de abonament doriti sa ii atribuiti?\n";

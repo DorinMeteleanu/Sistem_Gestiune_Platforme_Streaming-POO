@@ -7,4 +7,8 @@ public:
         std::cout << "[Abonament STANDARD] ID: " << idAbonament 
                   << " | Client: " << numeClient << " | Pret: " << pretLunar << " RON\n";
     }
+
+    int getNumarEcrane() const override { 
+        return 2; 
+    }
 };
