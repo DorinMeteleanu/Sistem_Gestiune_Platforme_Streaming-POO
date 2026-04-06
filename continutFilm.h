@@ -12,5 +12,6 @@ public:
     ~continutFilm();
     void afisare() const override;
     void redaContinut() const override;
+    int calculeazaNumarReclame() const override;
 
 };

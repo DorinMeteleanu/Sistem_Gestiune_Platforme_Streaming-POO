@@ -11,6 +11,13 @@ void continutMelodie::afisare() const {
                 << "Are videoclip: " << (areVideoclip ? "Da" : "Nu") << "\n";
 }
 
+int continutMelodie::calculeazaNumarReclame() const {
+    if (durata > 240) {
+        return 1;
+    }
+    return 0;
+}
+
 void continutMelodie::redaContinut() const {
     std::cout << "[PLAYER AUDIO] Redare melodie: '" << titlu << "' la claritatea " << bitrate << " kbps" << ", autor" << autor << "...\n";
 }

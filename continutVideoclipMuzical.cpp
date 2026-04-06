@@ -38,3 +38,7 @@ void VideoclipMuzical::afisare() const {
 void VideoclipMuzical::redaContinut() const {
     std::cout << "[PLAYER VIDEO MUZICAL] Redare videoclip: '" << titlu << "', regizat de " << regizor << "...\n";
 }
+
+int VideoclipMuzical::calculeazaNumarReclame() const {
+    return continutMelodie::calculeazaNumarReclame() + 1;
+}

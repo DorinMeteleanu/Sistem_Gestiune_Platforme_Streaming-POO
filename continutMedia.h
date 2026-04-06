@@ -18,4 +18,5 @@ public:
     virtual void afisare() const = 0; //polimorf. o sa pun pentru fiecare clasa copil functie personalzata de afisare
     virtual void redaContinut() const = 0; //polimorf.
     int getId() const { return ID; } 
+    virtual int calculeazaNumarReclame() const = 0;
 };
